@@ -2,7 +2,7 @@ import os
 import difflib
 from scripts.image_scraper import sanitize_model_name
 
-def fetch_image_path(car_model, car_images_dir='car_images'):
+def fetch_image_path(car_model, car_images_dir='static'):
     sanitized_model = sanitize_model_name(car_model)
     available_images = os.listdir(car_images_dir)
 
