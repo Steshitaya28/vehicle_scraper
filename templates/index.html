@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Car Image Fetcher</title>
+</head>
+<body>
+    <h1>Car Image Fetcher</h1>
+    <form method="POST" action="/fetch_image">
+        <label for="car_model">Enter Car Model:</label>
+        <input type="text" id="car_model" name="car_model" required>
+        <button type="submit">Fetch Image</button>
+    </form>
+    {% if image_url %}
+        <h2>Image for {{ car_model }}</h2>
+        <img src="{{ image_url }}" alt="{{ car_model }}">
+    {% endif %}
+</body>
+</html>
