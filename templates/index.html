@@ -3,18 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Car Image Fetcher</title>
+    <title>Car Image Viewer</title>
 </head>
 <body>
-    <h1>Car Image Fetcher</h1>
-    <form method="POST" action="/fetch_image">
+    <h1>Car Image Viewer</h1>
+    <form action="/fetch_image" method="post">
         <label for="car_model">Enter Car Model:</label>
         <input type="text" id="car_model" name="car_model" required>
         <button type="submit">Fetch Image</button>
     </form>
-    {% if image_url %}
+    {% if error %}
+        <p>{{ error }}</p>
+    {% endif %}
+    {% if car_model %}
         <h2>Image for {{ car_model }}</h2>
-        <img src="{{ image_url }}" alt="{{ car_model }}">
+        {% if image_url %}
+            <img src="{{ image_url }}" alt="{{ car_model }}">
+        {% else %}
+            <p>No image found for {{ car_model }}</p>
+        {% endif %}
     {% endif %}
 </body>
 </html>
