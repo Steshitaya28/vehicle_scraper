@@ -35,4 +35,4 @@ def fetch_image_endpoint():
         return render_template('index.html', error="Failed to find and download the image")
 
 if __name__ == "__main__":
-    app.run(host='0.0.0.0', port=8000 , debug = True)
+    app.run(host='0.0.0.0', port=8000)
