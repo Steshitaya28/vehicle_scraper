@@ -3,7 +3,7 @@ from scripts.image_fetcher import sanitize_model_name, fetch_image_path
 from scripts.image_scraper import fetch_image, download_image
 import os
 
-app = Flask(__name__)
+app = Flask(__name__, static_url_path='/static')
 
 @app.route('/')
 def index():
