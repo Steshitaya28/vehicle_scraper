@@ -31,10 +31,10 @@ def download_image(url, save_path):
             file.write(response.content)
 
 def scrape_images(car_models_list):
-    os.makedirs('car_images', exist_ok=True)
+    os.makedirs('static', exist_ok=True)
     for car_model in car_models_list:
         sanitized_model = sanitize_model_name(car_model)
-        save_path = os.path.join('car_images', f"{sanitized_model}.jpg")
+        save_path = os.path.join('static', f"{sanitized_model}.jpg")
 
         if not os.path.exists(save_path):
             logging.info(f"Fetching image for: {car_model}")
