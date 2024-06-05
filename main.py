@@ -20,16 +20,16 @@ def fetch_image_endpoint():
     image_path = fetch_image_path(car_model)
 
     if image_path:
-        image_url = f"/car_images/{os.path.basename(image_path)}"
+        image_url = f"/static/{os.path.basename(image_path)}"
         return render_template('index.html', car_model=car_model, image_url=image_url)
     
     # If image is not found, fetch and save it
     img_url = fetch_image(car_model)
     if img_url:
-        save_path = os.path.join('car_images', f"{sanitized_model}.jpg")
+        save_path = os.path.join('static', f"{sanitized_model}.jpg")
         download_image(img_url, save_path)
         
-        image_url = f"/car_images/{os.path.basename(save_path)}"
+        image_url = f"/static/{os.path.basename(save_path)}"
         return render_template('index.html', car_model=car_model, image_url=image_url)
     else:
         return render_template('index.html', error="Failed to find and download the image")
